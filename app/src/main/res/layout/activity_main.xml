@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+    android:id="@+id/top_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="new_Clicked"
+                android:src="@drawable/ic_action_new_canvas" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="brush_Clicked"
+                android:src="@drawable/ic_action_brush" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="eraser_Clicked"
+                android:src="@drawable/ic_action_eraser" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="undo_Clicked"
+                android:src="@drawable/ic_action_undo" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="redo_Clicked"
+                android:src="@drawable/ic_action_redo" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="clear_Clicked"
+                android:src="@drawable/ic_action_clear_screen" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="save_Clicked"
+                android:src="@drawable/ic_action_save" />
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <!--custom view-->
+    <com.example.genesis.sketchpad.SketchPadView
+        android:id="@+id/custom_view"
+        android:layout_below="@+id/top_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+
+    <android.support.v7.widget.Toolbar
+        android:visibility="gone"
+        android:id="@+id/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+     <!--wrapper for the brush size and color options   -->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/wrapper_linear_layout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <!--holds brush's size options-->
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/brush_size_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+
+            <Button
+                android:id="@+id/first_btn_size"
+                android:background="@drawable/shape_round"
+                android:onClick="changeBrushSize"
+                android:layout_width="5dp"
+                android:layout_height="5dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+
+            <Button
+                android:id="@+id/second_btn_size"
+                android:onClick="changeBrushSize"
+                android:background="@drawable/shape_round"
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+            <Button
+                android:id="@+id/third_btn_size"
+                android:onClick="changeBrushSize"
+                android:background="@drawable/shape_round"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+            <Button
+                android:id="@+id/fourth_btn_size"
+                android:onClick="changeBrushSize"
+                android:background="@drawable/shape_round"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+            <Button
+                android:id="@+id/fifth_btn_size"
+                android:onClick="changeBrushSize"
+                android:background="@drawable/shape_round"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1" >
+        </Space>
+
+        <!--holds  diffrent color options-->
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/brush_color_linear_layout"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+
+            <Button
+                android:id="@+id/colorRed"
+                android:onClick="selectBrushColor"
+                android:background="@drawable/shape_round"
+                android:backgroundTint="@color/colorRed"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+
+            <Button
+                android:id="@+id/colorGreen"
+                android:onClick="selectBrushColor"
+                android:backgroundTint="@color/colorGreen"
+                android:background="@drawable/shape_round"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+            <Button
+                android:id="@+id/colorPrimaryDark"
+                android:onClick="selectBrushColor"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:background="@drawable/shape_round"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+            <Button
+                android:id="@+id/colorTeal"
+                android:onClick="selectBrushColor"
+                android:backgroundTint="@color/colorTeal"
+                android:background="@drawable/shape_round"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+            <Button
+                android:id="@+id/colorOrange"
+                android:onClick="selectBrushColor"
+                android:backgroundTint="@color/colorOrange"
+                android:background="@drawable/shape_round"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+            <Button
+                android:id="@+id/colorYellow"
+                android:onClick="selectBrushColor"
+                android:backgroundTint="@color/colorYellow"
+                android:background="@drawable/shape_round"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </Space>
+
+
+
+        </LinearLayout>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:layout_weight="1" >
+        </Space>
+
+
+    </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    </RelativeLayout>
